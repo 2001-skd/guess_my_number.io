@@ -13,6 +13,7 @@ const again = document.querySelector(".again");
 checkButton.addEventListener("click", () => {
   // read the number when the user click the button , then only we can get the value , else empty string or 0.
   const guessedNumber = Number(document.querySelector(".guess").value);
+
   //   number.textContent = secretNumber;
 
   if (!guessedNumber) {
@@ -25,16 +26,18 @@ checkButton.addEventListener("click", () => {
       //   console.log("Guessed Number is Right !");
       message.textContent = "😎 Guessed Number is Right !";
       highScore.textContent = score;
-      document.body.style.background = "#60b347";
+      document.querySelector("body").style.background = "#60b347";
     } else if (guessedNumber > secretNumber) {
       //   console.log("Guessed Number is Too High !");
       message.textContent = "🙄 Guessed Number is Too High !";
       score > 0 ? score-- : 0;
+      score === 0 ? (message.textContent = "😫 You Lost The GAME!") : "";
       //   console.log(score);
       scoreBoardVal.textContent = score;
     } else if (guessedNumber < secretNumber) {
       message.textContent = "🙄 Guessed Number is Too Low !";
       score > 0 ? score-- : 0;
+      score === 0 ? (message.textContent = "😫 You Lost The GAME!") : "";
       //   console.log(score);
 
       scoreBoardVal.textContent = score;
